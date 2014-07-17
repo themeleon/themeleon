@@ -3,7 +3,7 @@
  *
  * See the functions from `factory.js` for variables signification.
  *
- * This constructor has an empty prototype (except the `mix` method) since
+ * This constructor has an empty prototype (except the `use` method) since
  * Themeleon works only with mixins. There's a main mixin in `main.js`
  * containing the base functions, and all the extensions are merged in the
  * same way on the object instance.
@@ -28,7 +28,7 @@ module.exports = function Themeleon(src, dest, ctx) {
  *
  * @param {...object} obj
  */
-Themeleon.prototype.mix = function (obj) {
+Themeleon.prototype.use = function (obj) {
   for (var i = 0; i < arguments.length; i++) {
     for (var j in arguments[i]) {
       this[j] = arguments[i][j];
