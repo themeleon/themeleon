@@ -12,7 +12,6 @@ exports.promise = function promise() {
   return q.all(this.tasks);
 };
 
-
 /**
  * @param {string} src Path to copy, relative to theme's root.
  * @param {string} dest Optional destination path.
