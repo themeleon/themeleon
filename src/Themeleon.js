@@ -21,7 +21,7 @@ module.exports = function Themeleon(src, dest, ctx) {
   this.src = src;
   this.dest = dest;
   this.ctx = ctx;
-}
+};
 
 /**
  * Mix given object(s) with current instance.
