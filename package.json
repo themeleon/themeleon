@@ -6,8 +6,14 @@
     "type": "git",
     "url": "https://github.com/valeriangalliat/themeleon.git"
   },
+  "scripts": {
+    "test": "jshint src"
+  },
   "dependencies": {
     "fs-extra": "0.*",
     "q": "1.*"
+  },
+  "devDependencies": {
+    "jshint": "2.*"
   }
 }
