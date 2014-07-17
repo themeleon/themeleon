@@ -27,7 +27,7 @@ themeleon.use({
 
 module.exports = themeleon(__dirname, function (t) {
   t.copy('assets'); // Will copy `assets` in destination directory
-  // t.comy('assets', 'foo'); // Other name in destination directory
+  // t.copy('assets', 'foo'); // Other name in destination directory
 
   // Compile a Swig view as `index.html` in destination directory
   t.swig('views/index.html.swig', 'index.html');
