@@ -16,7 +16,7 @@
  * @param {string} dest
  * @param {object} ctx
  */
-function Themeleon(src, dest, ctx) {
+module.exports = function Themeleon(src, dest, ctx) {
   this.tasks = [];
   this.src = src;
   this.dest = dest;
