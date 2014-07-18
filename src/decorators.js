@@ -8,7 +8,7 @@ exports.src = function src(fn) {
 };
 
 exports.srcDest = function srcDest(fn) {
-  fn = src(fn);
+  fn = exports.src(fn);
 
   return function (src, dest) {
     if (typeof dest === 'undefined') {
