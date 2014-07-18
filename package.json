@@ -1,7 +1,7 @@
 {
   "name": "themeleon",
   "version": "0.1.6",
-  "main": "lib/factory",
+  "main": "lib",
   "directories": {
     "lib": "lib"
   },
