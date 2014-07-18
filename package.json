@@ -1,16 +1,12 @@
 {
   "name": "themeleon",
-  "version": "0.1.7",
-  "main": "lib",
-  "directories": {
-    "lib": "lib"
-  },
+  "version": "0.1.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/valeriangalliat/themeleon.git"
   },
   "scripts": {
-    "test": "jshint src"
+    "test": "jshint *.js"
   },
   "dependencies": {
     "fs-extra": "0.*",
