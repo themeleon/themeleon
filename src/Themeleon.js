@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Themeleon helper constructor.
  *
@@ -21,6 +23,9 @@ module.exports = function Themeleon(src, dest, ctx) {
   this.src = src;
   this.dest = dest;
   this.ctx = ctx;
+
+  // Shortcut to push a promise
+  this.push = this.tasks.push.bind(this.tasks);
 };
 
 /**

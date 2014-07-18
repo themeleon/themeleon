@@ -1,3 +1,5 @@
+'use strict';
+
 var Themeleon = require('./Themeleon');
 var main = require('./main');
 
