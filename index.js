@@ -15,10 +15,10 @@ module.exports = function factory() {
    * `dirname` to implement the Themeleon interface.
    *
    * @param {string} src Theme package directory.
-   * @param {function} render A render function.
+   * @param {function} proc The render procedure.
    * @return {function} Main theme function wrapping the render function.
    */
-  function themeleon(src, render) {
+  function themeleon(src, proc) {
 
     /**
      * Actual Themeleon interface implementation using previous `render`
@@ -31,7 +31,7 @@ module.exports = function factory() {
     return function render(dest, ctx) {
       var t = new Themeleon(src, dest, ctx);
       t.use.apply(t, themeleon.exts);
-      render(t);
+      proc(t);
       return t.promise();
     };
   }
