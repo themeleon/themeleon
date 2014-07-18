@@ -17,5 +17,5 @@ exports.srcDest = function srcDest(fn) {
 
     arguments[1] = this.dest + '/' + dest;
     return fn.apply(this, arguments);
-  });
+  };
 };
