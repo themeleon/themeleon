@@ -11,7 +11,7 @@ var copy = q.denodeify(fse.copy);
  *
  * @return {promise}
  */
-exports.promise = function promise() {
+exports.promise = function () {
   return q.all(this.tasks);
 };
 
@@ -19,6 +19,6 @@ exports.promise = function promise() {
  * @param {string} src Path to copy, relative to theme's root.
  * @param {string} dest Optional destination path.
  */
-exports.copy = d.srcDest(function copy(src, dest) {
+exports.copy = d.srcDest(function (src, dest) {
   this.push(copy(src, dest));
 });

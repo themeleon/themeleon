@@ -1,13 +1,13 @@
 'use strict';
 
-exports.src = function src(fn) {
+exports.src = function (fn) {
   return function (src) {
     arguments[0] = this.src + '/' + src;
     return fn.apply(this, arguments);
   };
 };
 
-exports.srcDest = function srcDest(fn) {
+exports.srcDest = function (fn) {
   fn = exports.src(fn);
 
   return function (src, dest) {

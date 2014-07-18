@@ -50,7 +50,7 @@ module.exports = function factory() {
    *
    * @param {string|object} ext Extension to include.
    */
-  themeleon.use = function use(ext) {
+  themeleon.use = function (ext) {
     if (typeof ext === 'string') {
       ext = require('themeleon-' + ext);
     }
