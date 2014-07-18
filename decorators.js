@@ -15,7 +15,8 @@ exports.srcDest = function (fn) {
       dest = src;
     }
 
-    arguments[1] = this.dest + '/' + dest;
-    return fn.apply(this, arguments);
+    var args = Array.prototype.slice.call(arguments);
+    args[1] = this.dest + '/' + dest;
+    return fn.apply(this, args);
   };
 };
