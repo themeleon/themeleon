@@ -30,7 +30,7 @@ module.exports = function factory() {
      */
     return function render(dest, ctx) {
       var t = new Themeleon(src, dest, ctx);
-      t.mix.apply(t, themeleon.exts);
+      t.use.apply(t, themeleon.exts);
       render(t);
       return t.promise();
     };

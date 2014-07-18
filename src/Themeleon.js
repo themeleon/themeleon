@@ -33,7 +33,7 @@ module.exports = function Themeleon(src, dest, ctx) {
  *
  * @param {...object} obj
  */
-Themeleon.prototype.use = function (obj) {
+module.exports.prototype.use = function use(obj) {
   for (var i = 0; i < arguments.length; i++) {
     for (var j in arguments[i]) {
       this[j] = arguments[i][j];
