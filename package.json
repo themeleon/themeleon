@@ -1,7 +1,10 @@
 {
   "name": "themeleon",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "lib/factory",
+  "directories": {
+    "lib": "lib"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/valeriangalliat/themeleon.git"
