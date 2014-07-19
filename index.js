@@ -45,14 +45,24 @@ module.exports = function factory() {
    * Use a Themeleon extension.
    *
    * If the `ext` parameter is a string, a `themeleon-{{ ext }}` package
-   * will be required. If it's an object, we assume it's directly the
-   * extension mixin.
+   * will be required to get the mixin constructor.
    *
-   * @param {string|object} ext Extension to include.
+   * If it's a function, we assume it is already the mixin constructor,
+   * and it's called with given arguments.
+   *
+   * If it's an object, we assume it's directly the extension mixin.
+   *
+   * @param {string|function|object} ext Extension to include.
+   * @param {...*} arg Optional arguments for mixin constructor.
    */
-  themeleon.use = function (ext) {
+  themeleon.use = function (ext, arg) {
     if (typeof ext === 'string') {
       ext = require('themeleon-' + ext);
+    }
+
+    if (typeof ext === 'function') {
+      var args = Array.prototype.slice.call(arguments, 1);
+      ext = ext.apply(null, args);
     }
 
     themeleon.exts.push(ext);
