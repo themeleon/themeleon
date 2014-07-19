@@ -11,7 +11,7 @@ Define a theme using Swig as template engine:
 ```js
 var themeleon = require('themeleon')();
 
-themeleon.use('swig'); // Not actually implemented
+themeleon.use('swig');
 
 // Merge custom mixin
 themeleon.use({
