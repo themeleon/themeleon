@@ -66,6 +66,8 @@ module.exports = function factory() {
     }
 
     themeleon.exts.push(ext);
+
+    return themeleon;
   };
 
   return themeleon;
