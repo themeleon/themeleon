@@ -87,7 +87,7 @@ is the following:
    function if you expose a Node.js API.
 1. If the theme is not a function, and is a single identifier
    (something like `[a-z-]+`, but you can be less strict), `require`
-   your prefix (`{{context}}-theme-`) followed by the theme name.
+   the prefixed name (`{{context}}-theme-{{theme}}`).
 1. Otherwise, `require` the whole name (it might be a path), resolved to
    `process.cwd()` (it might be relative too).
 
