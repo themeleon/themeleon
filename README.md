@@ -68,11 +68,11 @@ qualifies the kind of data the context object will contain, and
 
 See a practical example in the [Examples](#examples) section below.
 
-You're not required to publish the theme on npm though, anything that
-can be `require`d will do the job, so downloading a theme archive,
-extracting it in a folder, and including its `index.js` is also an
-acceptable solution. I believe it's more practical to use a package
-manager for this though.
+You're not required to publish the theme on npm, anything that can be
+`require`d will do the job, so downloading a theme archive, extracting
+it in a folder, and including its `index.js` is also an acceptable
+solution. I believe it's more practical to use a package manager for
+this though.
 
 #### Inclusion
 
