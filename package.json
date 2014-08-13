@@ -1,18 +1,35 @@
 {
   "name": "themeleon",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "A lightweight Node.js theme engine.",
+  "license": "Unlicense",
+
+  "author": {
+    "name": "Valérian Galliat",
+    "url": "http://val.codejam.info/"
+  },
+
+  "contributors": [],
+
+  "homepage": "https://github.com/themeleon/themeleon",
+  "bugs": "https://github.com/themeleon/themeleon/issues",
+
   "repository": {
     "type": "git",
-    "url": "https://github.com/valeriangalliat/themeleon.git"
+    "url": "https://github.com/themeleon/themeleon.git"
   },
-  "scripts": {
-    "test": "eslint *.js"
-  },
+
   "dependencies": {
     "fs-extra": "0.*",
     "q": "1.*"
   },
+
   "devDependencies": {
     "eslint": "0.*"
+  },
+
+  "scripts": {
+    "lint": "eslint *.js",
+    "test": "$npm_package_scripts_lint"
   }
 }
