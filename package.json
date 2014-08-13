@@ -1,18 +1,18 @@
 {
   "name": "themeleon",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/valeriangalliat/themeleon.git"
   },
   "scripts": {
-    "test": "jshint *.js"
+    "test": "eslint *.js"
   },
   "dependencies": {
     "fs-extra": "0.*",
     "q": "1.*"
   },
   "devDependencies": {
-    "jshint": "2.*"
+    "eslint": "0.*"
   }
 }

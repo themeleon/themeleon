@@ -55,7 +55,7 @@ module.exports = function factory() {
    * @param {string|function|object} ext Extension to include.
    * @param {...*} arg Optional arguments for mixin constructor.
    */
-  themeleon.use = function (ext, arg) {
+  themeleon.use = function (ext/*, arg... */) {
     if (typeof ext === 'string') {
       ext = require('themeleon-' + ext);
     }
