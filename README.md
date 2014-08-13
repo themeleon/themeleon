@@ -84,7 +84,7 @@ Themeleon doesn't enforces anything about this, but the recommended way
 is the following:
 
 1. Let your users configure a theme name (or even directly a theme
-   function you expose a Node.js API.
+   function if you expose a Node.js API.
 1. If the theme is not a function, and is a single identifier
    (something like `[a-z-]+`, but you can be less strict), `require`
    your prefix (`{{context}}-theme-`) followed by the theme name.
