@@ -1,8 +1,10 @@
 'use strict';
 
+var path = require('path');
+
 exports.src = function (fn) {
   return function (src) {
-    arguments[0] = this.src + '/' + src;
+    arguments[0] = path.resolve(this.src, src);
     return fn.apply(this, arguments);
   };
 };
@@ -16,7 +18,7 @@ exports.srcDest = function (fn) {
     }
 
     var args = Array.prototype.slice.call(arguments);
-    args[1] = this.dest + '/' + dest;
+    args[1] = path.resolve(this.dest,  dest);
     return fn.apply(this, args);
   };
 };
