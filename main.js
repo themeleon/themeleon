@@ -20,5 +20,7 @@ exports.promise = function () {
  * @param {string} dest Optional destination path.
  */
 exports.copy = d.srcDest(function (src, dest) {
-  this.push(copy(src, dest));
+  var p = copy(src, dest);
+  this.push(p);
+  return p;
 });
