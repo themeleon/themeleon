@@ -8,12 +8,12 @@
     "url": "http://unlicense.org/"
   },
 
-  "contributors": [
-    {
-      "name": "Valérian Galliat",
-      "url": "http://val.codejam.info/"
-    }
-  ],
+  "author": {
+    "name": "Valérian Galliat",
+    "url": "http://val.codejam.info/"
+  },
+
+  "contributors": [],
 
   "homepage": "https://github.com/themeleon/themeleon",
   "bugs": "https://github.com/themeleon/themeleon/issues",
