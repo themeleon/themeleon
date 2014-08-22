@@ -1,15 +1,19 @@
 {
   "name": "themeleon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightweight Node.js theme engine.",
-  "license": "Unlicense",
 
-  "author": {
-    "name": "Valérian Galliat",
-    "url": "http://val.codejam.info/"
+  "license": {
+    "type": "Unlicense",
+    "url": "http://unlicense.org/"
   },
 
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Valérian Galliat",
+      "url": "http://val.codejam.info/"
+    }
+  ],
 
   "homepage": "https://github.com/themeleon/themeleon",
   "bugs": "https://github.com/themeleon/themeleon/issues",
