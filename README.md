@@ -223,6 +223,7 @@ Template engines
 * [Swig](https://github.com/themeleon/themeleon-swig)
 * [Jade](https://github.com/themeleon/themeleon-jade)
 * [Mustache](https://github.com/themeleon/themeleon-mustache)
+* [Nunjucks](https://github.com/themeleon/themeleon-nunjucks)
 
 Examples
 --------
