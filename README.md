@@ -224,6 +224,7 @@ Template engines
 * [Jade](https://github.com/themeleon/themeleon-jade)
 * [Mustache](https://github.com/themeleon/themeleon-mustache)
 * [Nunjucks](https://github.com/themeleon/themeleon-nunjucks)
+* [Handlebars](https://github.com/themeleon/themeleon-handlebars)
 
 Examples
 --------
