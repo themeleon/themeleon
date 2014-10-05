@@ -13,7 +13,11 @@ var copy = q.denodeify(fse.copy);
  * @return {Promise}
  */
 exports.promise = function () {
-  return q.all(this.tasks);
+  return this.tasks.reduce(function (a, b) {
+    return a.then(function () {
+      return b;
+    });
+  });
 };
 
 /**
