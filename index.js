@@ -57,7 +57,11 @@ module.exports = function factory() {
    */
   themeleon.use = function (ext/*, arg... */) {
     if (typeof ext === 'string') {
-      ext = require('themeleon-' + ext);
+      if (ext.indexOf('/') === -1) {
+        ext = require('themeleon-' + ext);
+      } else {
+        ext = require(ext);
+      }
     }
 
     if (typeof ext === 'function') {
