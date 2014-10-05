@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 /**
  * Themeleon helper constructor.
  *
@@ -20,8 +22,8 @@
  */
 module.exports = function Themeleon(src, dest, ctx) {
   this.tasks = [];
-  this.src = src;
-  this.dest = dest;
+  this.src = path.resolve(src);
+  this.dest = path.resolve(dest);
   this.ctx = ctx;
 
   // Shortcut to push a promise
