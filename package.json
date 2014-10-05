@@ -33,7 +33,7 @@
   },
 
   "scripts": {
-    "lint": "eslint *.js",
+    "lint": "eslint .",
     "test": "$npm_package_scripts_lint"
   }
 }

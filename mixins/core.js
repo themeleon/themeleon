@@ -3,7 +3,7 @@
 var path = require('path');
 var fse = require('fs-extra');
 var q = require('q');
-var d = require('./decorators');
+var d = require('../decorators');
 
 var copy = q.denodeify(fse.copy);
 

@@ -1,7 +1,7 @@
 'use strict';
 
 var Themeleon = require('./Themeleon');
-var main = require('./main');
+var core = require('./mixins/core');
 
 /**
  * Themeleon factory.
@@ -39,7 +39,7 @@ module.exports = function factory() {
   /**
    * @var {array} Container for Themeleon extensions.
    */
-  themeleon.exts = [main];
+  themeleon.exts = [core];
 
   /**
    * Use a Themeleon extension.
