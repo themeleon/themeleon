@@ -1,6 +1,10 @@
 'use strict';
 
+var fs = require('fs');
 var path = require('path');
+var q = require('q');
+
+var mkdir = q.denodeify(fs.mkdir);
 
 /**
  * Themeleon helper constructor.
@@ -28,6 +32,9 @@ module.exports = function Themeleon(src, dest, ctx) {
 
   // Shortcut to push a promise
   this.push = this.tasks.push.bind(this.tasks);
+
+  // Create directory maybe
+  this.push(mkdir(dest));
 };
 
 /**
