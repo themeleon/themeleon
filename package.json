@@ -34,11 +34,12 @@
   },
 
   "devDependencies": {
-    "eslint": "0.*"
+    "eslint": "0.*",
+    "nodeunit": "0.*"
   },
 
   "scripts": {
     "lint": "eslint .",
-    "test": "$npm_package_scripts_lint"
+    "test": "$npm_package_scripts_lint && nodeunit test"
   }
 }
