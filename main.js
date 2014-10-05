@@ -9,15 +9,15 @@ var copy = q.denodeify(fse.copy);
 /**
  * Return a promise for all the helper tasks.
  *
- * @return {promise}
+ * @return {Promise}
  */
 exports.promise = function () {
   return q.all(this.tasks);
 };
 
 /**
- * @param {string} src Path to copy, relative to theme's root.
- * @param {string} dest Optional destination path.
+ * @param {String} src Path to copy, relative to theme's root.
+ * @param {String} dest Optional destination path.
  */
 exports.copy = d.srcDest(function (src, dest) {
   var p = copy(src, dest);

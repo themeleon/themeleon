@@ -14,9 +14,9 @@
  * conventional properties to be used by the mixins.
  *
  * @constructor
- * @param {string} src
- * @param {string} dest
- * @param {object} ctx
+ * @param {String} src
+ * @param {String} dest
+ * @param {Object} ctx
  */
 module.exports = function Themeleon(src, dest, ctx) {
   this.tasks = [];
@@ -31,7 +31,7 @@ module.exports = function Themeleon(src, dest, ctx) {
 /**
  * Mix given object(s) with current instance.
  *
- * @param {...object} obj
+ * @param {...Object} obj
  */
 module.exports.prototype.use = function (/* obj... */) {
   for (var i = 0; i < arguments.length; i++) {
