@@ -13,7 +13,12 @@
     "url": "http://val.codejam.info/"
   },
 
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Pascal Duez",
+      "url": "https://github.com/pascalduez"
+    }
+  ],
 
   "homepage": "https://github.com/themeleon/themeleon",
   "bugs": "https://github.com/themeleon/themeleon/issues",
