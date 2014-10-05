@@ -35,7 +35,8 @@
 
   "devDependencies": {
     "eslint": "0.*",
-    "nodeunit": "0.*"
+    "nodeunit": "0.*",
+    "rimraf": "2.*"
   },
 
   "scripts": {
