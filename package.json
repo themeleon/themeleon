@@ -29,7 +29,10 @@
   },
 
   "dependencies": {
+    "ap": "0.*",
     "fs-extra": "0.*",
+    "glob": "4.*",
+    "merge": "1.*",
     "q": "1.*"
   },
 
@@ -37,7 +40,13 @@
     "eslint": "0.*",
     "faucet": "0.*",
     "rimraf": "2.*",
-    "tape": "2.*"
+    "tape": "2.*",
+
+    "handlebars": "2.*"
+  },
+
+  "peerDependencies": {
+    "handlebars": "2.*"
   },
 
   "scripts": {
