@@ -43,12 +43,14 @@
     "tape": "2.*",
 
     "handlebars": "2.*",
-    "jade": "1.*"
+    "jade": "1.*",
+    "mustache": "0.*"
   },
 
   "peerDependencies": {
     "handlebars": "2.*",
-    "jade": "1.*"
+    "jade": "1.*",
+    "mustache": "0.*"
   },
 
   "scripts": {
