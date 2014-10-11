@@ -243,17 +243,11 @@ function implementing the [Themeleon interface](#interface), and making
 sense of the context data passed by SassDoc.
 
 Since the context is specific to SassDoc, all themes are prefixed with
-`sassdoc-theme-`. Thus, the [light theme][sassdoc-theme-light] is
-published as `sassdoc-theme-light`. This theme uses Swig to render a
+`sassdoc-theme-`. Thus, the [default theme][sassdoc-theme-default] is
+published as `sassdoc-theme-default`. This theme uses Swig to render a
 single HTML page from multiple Swig partials, built around the
 documented SassDoc context.
 
-It's also a good practise to provide a default theme, to make it an
-alias for the main official theme of the project. Typically,
-[`sassdoc-theme-default`][sassdoc-theme-default] which acts as a proxy
-for the light theme.
-
 [SassDoc]: https://github.com/SassDoc/sassdoc
-[theme-context]: https://github.com/SassDoc/sassdoc/wiki/Theme-Context
-[sassdoc-theme-light]: https://github.com/SassDoc/sassdoc-theme-light
+[theme-context]: http://sassdoc.com/data-interface/
 [sassdoc-theme-default]: https://github.com/SassDoc/sassdoc-theme-default
