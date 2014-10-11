@@ -42,6 +42,6 @@
 
   "scripts": {
     "lint": "eslint .",
-    "test": "$npm_package_scripts_lint && tape test | faucet"
+    "test": "$npm_package_scripts_lint && tape test/*.js | faucet"
   }
 }
