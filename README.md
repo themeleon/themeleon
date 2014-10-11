@@ -1,5 +1,4 @@
-Themeleon
-=========
+# Themeleon [![npm version](http://img.shields.io/npm/v/themeleon.svg?style=flat-square)](https://www.npmjs.org/package/themeleon)
 
 > A lightweight Node.js theme engine.
 
