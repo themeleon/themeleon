@@ -45,14 +45,16 @@
     "handlebars": "2.*",
     "jade": "1.*",
     "mustache": "0.*",
-    "nunjucks": "1.*"
+    "nunjucks": "1.*",
+    "swig": "1.*"
   },
 
   "peerDependencies": {
     "handlebars": "2.*",
     "jade": "1.*",
     "mustache": "0.*",
-    "nunjucks": "1.*"
+    "nunjucks": "1.*",
+    "swig": "1.*"
   },
 
   "scripts": {
