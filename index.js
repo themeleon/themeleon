@@ -58,7 +58,15 @@ module.exports = function factory() {
   themeleon.use = function (ext/*, arg... */) {
     if (typeof ext === 'string') {
       if (ext.indexOf('/') === -1) {
-        ext = require('themeleon-' + ext);
+        try {
+          ext = require('themeleon-' + ext);
+        } catch (e) {
+          if (e.code !== 'MODULE_NOT_FOUND') {
+            throw e;
+          }
+
+          ext = require('./mixins/' + ext);
+        }
       } else {
         ext = require(ext);
       }
