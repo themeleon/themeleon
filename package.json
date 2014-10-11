@@ -35,12 +35,13 @@
 
   "devDependencies": {
     "eslint": "0.*",
-    "nodeunit": "0.*",
-    "rimraf": "2.*"
+    "faucet": "0.*",
+    "rimraf": "2.*",
+    "tape": "2.*"
   },
 
   "scripts": {
     "lint": "eslint .",
-    "test": "$npm_package_scripts_lint && nodeunit test"
+    "test": "$npm_package_scripts_lint && tape test | faucet"
   }
 }
