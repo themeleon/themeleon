@@ -38,6 +38,8 @@ module.exports = function (file, test) {
       theme(destPath, test.ctx || {}).then(function () {
         test.test(helper);
         t.end();
+      }, function (e) {
+        console.error(e.stack);
       });
     });
   });
