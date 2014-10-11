@@ -14,7 +14,7 @@ process.on('uncaughtException', function (e) {
 });
 
 exports.render = function (test) {
-  test.expect(2);
+  test.expect(3);
 
   rimraf(DEST, function () {
     var themeleon = require('..')();
@@ -25,6 +25,9 @@ exports.render = function (test) {
     var theme = themeleon(THEME, function (t) {
       test.ok(t.test === 'test', 'Node.js module mixin (function)');
       test.ok(t.object === 'object', 'Object mixin (literal)');
+
+      t.base('foo/bar');
+      test.ok(t.ctx.base === './..', 'Base directory');
 
       t.copy('assets');
       t.copy('assets', 'public');
