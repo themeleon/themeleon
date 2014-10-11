@@ -11,6 +11,11 @@
   * [As a theme maker](#as-a-theme-maker)
   * [As a theme user](#as-a-theme-user)
 * [Template engines](#template-engines)
+  * [Swig](#swig)
+  * [Nunjucks](#nunjucks)
+  * [Jade](#jade)
+  * [Mustache](#mustache)
+  * [Handlebars](#handlebars)
 * [Examples](#examples)
 
 Overview
@@ -233,11 +238,109 @@ theme('dest', {
 Template engines
 ----------------
 
-* [Swig](https://github.com/themeleon/themeleon-swig)
-* [Jade](https://github.com/themeleon/themeleon-jade)
-* [Mustache](https://github.com/themeleon/themeleon-mustache)
-* [Nunjucks](https://github.com/themeleon/themeleon-nunjucks)
-* [Handlebars](https://github.com/themeleon/themeleon-handlebars)
+### Swig
+
+```js
+// Use the Swig mixin
+themeleon.use('swig');
+
+// Or inject your own instance
+themeleon.use('swig', require('swig'));
+
+module.exports = themeleon(__dirname, function (t) {
+  // Compile a Swig view as `index.html` in destination directory
+  t.swig('views/index.html.swig', 'index.html');
+});
+```
+
+### Nunjucks
+
+```js
+// Use the Nunjucks mixin
+themeleon.use('nunjucks');
+
+// Or inject your own instance
+themeleon.use('nunjucks', require('nunjucks'));
+
+module.exports = themeleon(__dirname, function (t) {
+  // Configure Nunjucks views base path and options
+  t.nunjucks.configure('views', options);
+
+  // Compile a Nunjucks view as `index.html` in destination directory
+  t.nunjucks('index.html', 'dist/index.html');
+});
+```
+
+See [Nunjucks configuration](https://mozilla.github.io/nunjucks/api.html#configure).
+
+### Jade
+
+```js
+// Use the Jade mixin
+themeleon.use('jade');
+
+// Or inject your own instance
+themeleon.use('jade', require('jade'));
+
+module.exports = themeleon(__dirname, function (t) {
+  var options = {
+    pretty: true,
+  };
+
+  // Compile a Jade view as `index.html` in destination directory
+  t.jade('views/index.jade', 'index.html', options);
+});
+```
+
+### Mustache
+
+```js
+// Use the Mustache mixin
+themeleon.use('mustache');
+
+// Or inject your own instance
+themeleon.use('mustache', require('mustache'));
+
+module.exports = themeleon(__dirname, function (t) {
+  // Render index alone
+  t.mustache('views/index.mustache', 'index.html');
+
+  // Or include a partials object
+  t.mustache('views/index.mustache', 'index.html', {
+    foo: 'views/foo.mustache',
+    'foo/bar': 'views/foo/bar.mustache',
+  });
+
+  // Or let the mixin resolve all `.mustache` files in `views`
+  t.mustache('views/index.mustache', 'index.html', 'views');
+});
+```
+
+### Handlebars
+
+```js
+// Use the Handlebars mixin
+themeleon.use('handlebars');
+
+// Or inject your own instance
+themeleon.use('handlebars', require('handlebars'));
+
+module.exports = themeleon(__dirname, function (t) {
+  // Render index alone
+  t.handlebars('views/index.handlebars', 'index.html');
+
+  // Or include a partials object
+  t.handlebars('views/index.handlebars', 'index.html', {
+    foo: 'views/foo.handlebars',
+    'foo/bar': 'views/foo/bar.handlebars',
+  });
+
+  // Or let the mixin resolve all `.handlebars` files in `views`
+  t.handlebars('views/index.handlebars', 'index.html', 'views');
+});
+```
+
+**Note:** `.handlebars` and `.hbs` extensions are supported.
 
 Examples
 --------
