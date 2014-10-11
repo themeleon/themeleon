@@ -32,14 +32,20 @@ module.exports = function (file, test) {
     helper.test = t.test;
 
     rimraf(destPath, function () {
-      var themeleon = themeleonFactory();
-      var theme = themeleon(themePath, test.init(helper, themeleon));
+      fs.mkdir(destPath, function (e) {
+        if (e) {
+          throw e;
+        }
 
-      theme(destPath, test.ctx || {}).then(function () {
-        test.test(helper);
-        t.end();
-      }, function (e) {
-        console.error(e.stack);
+        var themeleon = themeleonFactory();
+        var theme = themeleon(themePath, test.init(helper, themeleon));
+
+        theme(destPath, test.ctx || {}).then(function () {
+          test.test(helper);
+          t.end();
+        }, function (e) {
+          console.error(e.stack);
+        });
       });
     });
   });
