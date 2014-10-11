@@ -42,11 +42,13 @@
     "rimraf": "2.*",
     "tape": "2.*",
 
-    "handlebars": "2.*"
+    "handlebars": "2.*",
+    "jade": "1.*"
   },
 
   "peerDependencies": {
-    "handlebars": "2.*"
+    "handlebars": "2.*",
+    "jade": "1.*"
   },
 
   "scripts": {
