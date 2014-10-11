@@ -30,7 +30,7 @@ The following JSDoc comment describes the theme interface:
 /**
  * @param {String} destination
  *   Destination directory to render the theme in. The directory must
- *   already exist and must be writable.
+ *   already exist, be empty, and be writable.
  *
  * @param {Object} context
  *   An object passed to the template engine to render the theme. Usually,
@@ -45,6 +45,9 @@ function render(destination, context) {}
 So, if you want to create a *Themeleon compatible* theme, you can
 implement this interface by hand without relying on the `themeleon`
 Node.js package.
+
+The behavior is undefined if the destination directory doesn't exists or
+is not empty.
 
 *Note: Themeleon does not document anything about the context object
 structure. This is left to the project that will be themed. It means
