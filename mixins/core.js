@@ -63,4 +63,8 @@ exports.base = function (dest) {
   }
 
   this.ctx.base = path.relative(dest, this.dest);
+
+  if (this.ctx.base === '') {
+    this.ctx.base = '.';
+  }
 };
