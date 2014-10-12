@@ -102,10 +102,10 @@ Themeleon doesn't enforces anything about this, but the recommended way
 is the following:
 
 1. Let your users configure a theme name (or even directly a theme
-   function if you expose a Node.js API.
-1. If the theme is not a function, and is a single identifier
-   (something like `[a-z-]+`, but you can be less strict), `require`
-   the prefixed name (`{{context}}-theme-{{theme}}`).
+   function if you expose a Node.js API).
+1. If the theme is not a function but a single identifier (something
+   like `[a-z-]+`, but you can be less strict), `require` the prefixed
+   name (`{{context}}-theme-{{theme}}`).
 1. Otherwise, `require` the whole name (it might be a path), resolved to
    `process.cwd()` (it might be relative too).
 
