@@ -55,22 +55,12 @@ exports.copy = d.push(d.srcDest(function (src, dest) {
  * @param {String} dest Destination path (relative to `this.dest`).
  */
 exports.base = function (dest) {
-  dest = path.resolve(this.dest,  dest);
+  dest = path.dirname(path.resolve(this.dest,  dest));
 
   if (dest.indexOf(this.dest) !== 0) {
     // Not contained in HTML root
     return '';
   }
 
-  dest = dest.substr(this.dest.length + 1);
-
-  var base = '.';
-
-  // Add as much `/..` as there is nested directories
-  (dest.match(/\//g) || []).forEach(function () {
-    base += '/..';
-  });
-
-  // Set context
-  this.ctx.base = base;
+  this.ctx.base = path.relative(dest, this.dest);
 };

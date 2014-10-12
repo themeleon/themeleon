@@ -16,7 +16,7 @@ require('./test')(__filename, {
       h.test('base directory', function (t) {
         t.plan(1);
         th.base('foo/bar');
-        t.equal(th.ctx.base, './..');
+        t.equal(th.ctx.base, '..');
         t.end();
       });
 
