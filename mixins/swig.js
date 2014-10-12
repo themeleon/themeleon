@@ -12,9 +12,10 @@ module.exports = function (swig) {
   var writeFile = q.denodeify(fs.writeFile);
 
   return {
-    swig: d.srcDest(function (src, dest) {
+    swig: d.push(d.srcDest(function (src, dest) {
       var writeIndex = ap([dest], writeFile);
-      this.push(renderFile(src, this.ctx).then(writeIndex));
-    }),
+      this.base(dest);
+      return renderFile(src, this.ctx).then(writeIndex);
+    })),
   };
 };

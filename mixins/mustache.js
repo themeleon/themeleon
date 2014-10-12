@@ -108,17 +108,16 @@ module.exports = function (mustache) {
   var writeFile = q.denodeify(fs.writeFile);
 
   return {
-    mustache: d.srcDest(function (src, dest, partials) {
-      var promise = q.all([
+    mustache: d.push(d.srcDest(function (src, dest, partials) {
+      return q.all([
         readFile(src, 'utf8'),
         readPartials(this.src, partials)
       ])
         .spread(function (template, partials) {
+          this.base(dest);
           return mustache.render(template, this.ctx, partials);
         }.bind(this))
         .then(ap([dest], writeFile));
-
-      this.push(promise);
-    }),
+    })),
   };
 };

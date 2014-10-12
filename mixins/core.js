@@ -10,25 +10,32 @@ var copy = q.denodeify(fse.copy);
 /**
  * Return a promise for all the helper tasks.
  *
+ * All the tasks are executed sequentially.
+ *
  * @return {Promise}
  */
 exports.promise = function () {
+  if (this.tasks.length === 0) {
+    // Empty theme
+    return q();
+  }
+
+  var first = this.tasks.shift();
+
   return this.tasks.reduce(function (a, b) {
     return a.then(function () {
-      return b;
+      return b();
     });
-  });
+  }, first());
 };
 
 /**
  * @param {String} src Path to copy, relative to theme's root.
  * @param {String} dest Optional destination path.
  */
-exports.copy = d.srcDest(function (src, dest) {
-  var p = copy(src, dest);
-  this.push(p);
-  return p;
-});
+exports.copy = d.push(d.srcDest(function (src, dest) {
+  return copy(src, dest);
+}));
 
 /**
  * Computes `ctx.base` path to be a relative path to the root

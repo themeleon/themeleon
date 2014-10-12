@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var q = require('q');
 
 /**
  * Themeleon helper constructor.
@@ -25,9 +26,6 @@ module.exports = function Themeleon(src, dest, ctx) {
   this.src = path.resolve(src);
   this.dest = path.resolve(dest);
   this.ctx = ctx;
-
-  // Shortcut to push a promise
-  this.push = this.tasks.push.bind(this.tasks);
 };
 
 /**
@@ -41,4 +39,23 @@ module.exports.prototype.use = function (/* obj... */) {
       this[j] = arguments[i][j];
     }
   }
+};
+
+/**
+ * Push a task (a function returning a promise) in the `tasks` array and
+ * return a promise for this task end.
+ *
+ * @param {Function} task
+ * @return {Promise}
+ */
+module.exports.prototype.push = function (task) {
+  var deferred = q.defer();
+
+  this.tasks.push(function () {
+    var promise = task();
+    deferred.resolve(promise);
+    return promise;
+  });
+
+  return deferred.promise;
 };

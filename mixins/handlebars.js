@@ -108,8 +108,8 @@ module.exports = function (handlebars) {
   var writeFile = q.denodeify(fs.writeFile);
 
   return {
-    handlebars: d.srcDest(function (src, dest, partials) {
-      var promise = q.all([
+    handlebars: d.push(d.srcDest(function (src, dest, partials) {
+      return q.all([
         readFile(src, 'utf8'),
         readPartials(this.src, partials)
       ])
@@ -118,11 +118,10 @@ module.exports = function (handlebars) {
             handlebars.registerPartial(name, partials[name]);
           }
 
+          this.base(dest);
           return handlebars.compile(template)(this.ctx);
         }.bind(this))
         .then(ap([dest], writeFile));
-
-      this.push(promise);
-    }),
+    })),
   };
 };

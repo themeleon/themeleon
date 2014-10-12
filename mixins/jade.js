@@ -13,11 +13,11 @@ module.exports = function (jade) {
   var writeFile = q.denodeify(fs.writeFile);
 
   return {
-    jade: d.srcDest(function (src, dest, options) {
+    jade: d.push(d.srcDest(function (src, dest, options) {
       var writeIndex = ap([dest], writeFile);
       options = merge(options, this.ctx);
-
-      this.push(renderFile(src, options).then(writeIndex));
-    })
+      this.base(dest);
+      return renderFile(src, options).then(writeIndex);
+    })),
   };
 };
