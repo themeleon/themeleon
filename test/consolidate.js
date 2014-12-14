@@ -1,11 +1,9 @@
 'use strict';
 
-var j = require('path').join;
-
 function test(dest, expected, theme) {
   require('./test')(__filename, {
     init: function (h, themeleon) {
-      themeleon.use(require('../mixins/nunjucks'));
+      themeleon.use(require('../mixins/consolidate'));
       return theme;
     },
 
@@ -28,11 +26,10 @@ function test(dest, expected, theme) {
   });
 }
 
-var src = 'fixture/index.tpl.html';
+var src = 'fixture/index.html.swig';
 var dest = 'index.html';
 var expected = 'fixtures/index.html';
 
 test(dest, expected, function (t) {
-  t.nunjucks.configure(j(__dirname, 'nunjucks'));
-  t.nunjucks(src, dest);
+  t.swig(src, dest);
 });

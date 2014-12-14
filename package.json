@@ -29,32 +29,19 @@
   },
 
   "dependencies": {
-    "ap": "0.*",
-    "fs-extra": "0.*",
-    "glob": "4.*",
-    "merge": "1.*",
-    "q": "1.*"
+    "ap": "^0.2.0",
+    "consolidate": "^0.10.0",
+    "fs-extra": "^0.13.0",
+    "glob": "^4.3.1",
+    "merge": "^1.2.0",
+    "q": "^1.1.2"
   },
 
   "devDependencies": {
-    "eslint": "0.*",
-    "faucet": "0.*",
-    "rimraf": "2.*",
-    "tape": "2.*",
-
-    "handlebars": "2.*",
-    "jade": "1.*",
-    "mustache": "0.*",
-    "nunjucks": "1.*",
-    "swig": "1.*"
-  },
-
-  "peerDependencies": {
-    "handlebars": "2.*",
-    "jade": "1.*",
-    "mustache": "0.*",
-    "nunjucks": "1.*",
-    "swig": "1.*"
+    "eslint": "^0.10.2",
+    "faucet": "0.0.1",
+    "rimraf": "^2.2.8",
+    "tape": "^3.0.3"
   },
 
   "scripts": {

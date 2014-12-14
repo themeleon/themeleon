@@ -11,11 +11,6 @@
   * [As a theme maker](#as-a-theme-maker)
   * [As a theme user](#as-a-theme-user)
 * [Template engines](#template-engines)
-  * [Swig](#swig)
-  * [Nunjucks](#nunjucks)
-  * [Jade](#jade)
-  * [Mustache](#mustache)
-  * [Handlebars](#handlebars)
 * [Examples](#examples)
 
 Overview
@@ -160,14 +155,8 @@ You can then use some mixins, for example see the
 [supported template engines](#template-engines).
 
 ```js
-// Use Swig mixin
-themeleon.use('swig');
-
-// You can also use Jade
-// themeleon.use('jade');
-
-// Or Mustache
-// themeleon.use('mustache');
+// Use consolidate.js for templating
+themeleon.use('consolidate');
 ```
 
 You may also add your own mixin:
@@ -238,109 +227,20 @@ theme('dest', {
 Template engines
 ----------------
 
-### Swig
+Themeleon provides a native mixin for [consolidate.js], an awesome
+library to get an unified interface for a bunch of template engines.
 
-```js
-// Use the Swig mixin
-themeleon.use('swig');
+[consolidate.js]: https://github.com/tj/consolidate.js
 
-// Or inject your own instance
-themeleon.use('swig', require('swig'));
+Basically, `t.{{engine}}` is an adapter for `consolidate.{{engine}}`,
+taking care of passing the context and writing the destination file for
+you. All you have to do is run `t.{{engine}}(src, dest)`.
 
-module.exports = themeleon(__dirname, function (t) {
-  // Compile a Swig view as `index.html` in destination directory
-  t.swig('views/index.html.swig', 'index.html');
-});
-```
-
-### Nunjucks
-
-```js
-// Use the Nunjucks mixin
-themeleon.use('nunjucks');
-
-// Or inject your own instance
-themeleon.use('nunjucks', require('nunjucks'));
-
-module.exports = themeleon(__dirname, function (t) {
-  // Configure Nunjucks views base path and options
-  t.nunjucks.configure('views', options);
-
-  // Compile a Nunjucks view as `index.html` in destination directory
-  t.nunjucks('index.html', 'dist/index.html');
-});
-```
-
-See [Nunjucks configuration](https://mozilla.github.io/nunjucks/api.html#configure).
-
-### Jade
-
-```js
-// Use the Jade mixin
-themeleon.use('jade');
-
-// Or inject your own instance
-themeleon.use('jade', require('jade'));
-
-module.exports = themeleon(__dirname, function (t) {
-  var options = {
-    pretty: true,
-  };
-
-  // Compile a Jade view as `index.html` in destination directory
-  t.jade('views/index.jade', 'index.html', options);
-});
-```
-
-### Mustache
-
-```js
-// Use the Mustache mixin
-themeleon.use('mustache');
-
-// Or inject your own instance
-themeleon.use('mustache', require('mustache'));
-
-module.exports = themeleon(__dirname, function (t) {
-  // Render index alone
-  t.mustache('views/index.mustache', 'index.html');
-
-  // Or include a partials object
-  t.mustache('views/index.mustache', 'index.html', {
-    foo: 'views/foo.mustache',
-    'foo/bar': 'views/foo/bar.mustache',
-  });
-
-  // Or let the mixin resolve all `.mustache` files in `views`
-  t.mustache('views/index.mustache', 'index.html', 'views');
-});
-```
-
-### Handlebars
-
-```js
-// Use the Handlebars mixin
-themeleon.use('handlebars');
-
-// Or inject your own instance
-themeleon.use('handlebars', require('handlebars'));
-
-module.exports = themeleon(__dirname, function (t) {
-  // Render index alone
-  t.handlebars('views/index.handlebars', 'index.html');
-
-  // Or include a partials object
-  t.handlebars('views/index.handlebars', 'index.html', {
-    foo: 'views/foo.handlebars',
-    'foo/bar': 'views/foo/bar.handlebars',
-  });
-
-  // Or let the mixin resolve all `.handlebars` files in `views`
-  t.handlebars('views/index.handlebars', 'index.html', 'views');
-});
-```
-
-**Note:** `.handlebars` and `.hbs` extensions are supported.
+If you want to add more variables to the context object (passed to the
+templates) for a specific file, you can pass an object as third
+argument, which will be merged with the global context before rendering.
+This is also used by consolidate.js to define partials for some template
+engines.
 
 Examples
 --------
