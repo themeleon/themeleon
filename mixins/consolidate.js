@@ -17,14 +17,14 @@ Object.keys(cons).forEach(function (engine) {
     renderFile = renderFile || q.denodeify(cons[engine]);
     writeFile = writeFile || q.denodeify(fs.writeFile);
 
+    // Ensure base path is set
+    this.base(dest);
+
     // Merge options
     var ctx = merge({}, this.ctx, options);
 
     // Write destination callback
     var writeDest = ap([dest], writeFile);
-
-    // Ensure base path is set
-    this.base(dest);
 
     // Render, then write
     return renderFile(src, ctx).then(writeDest);
