@@ -1,7 +1,11 @@
 'use strict';
 
+var q = require('q');
+var fse = require('fs-extra');
 var Themeleon = require('./Themeleon');
 var core = require('./mixins/core');
+
+var ensureDir = q.denodeify(fse.ensureDir);
 
 /**
  * Themeleon factory.
@@ -14,11 +18,11 @@ module.exports = function factory() {
    * Wraps a high-level `render` function for a theme localized in
    * `dirname` to implement the Themeleon interface.
    *
-   * @param {String} src Theme package directory.
+   * @param {Array|String} path Theme path.
    * @param {Function} proc The render procedure.
    * @return {Function} Main theme function wrapping the render function.
    */
-  function themeleon(src, proc) {
+  function themeleon(path, proc) {
 
     /**
      * Actual Themeleon interface implementation using previous `render`
@@ -28,12 +32,17 @@ module.exports = function factory() {
      * @param {Object} ctx Variables to pass to the theme.
      * @return {Promise} A Promises/A+ implementation.
      */
-    return function render(dest, ctx) {
-      var t = new Themeleon(src, dest, ctx);
+    function render(dest, ctx) {
+      var t = new Themeleon(render.path, dest, ctx);
       t.use.apply(t, themeleon.exts);
+      t.push(function () { return ensureDir(dest); });
       proc(t);
       return t.promise();
-    };
+    }
+
+    render.path = [].concat(path);
+
+    return render;
   }
 
   /**

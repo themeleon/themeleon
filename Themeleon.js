@@ -1,6 +1,6 @@
 'use strict';
 
-var path = require('path');
+var nodePath = require('path');
 var q = require('q');
 
 /**
@@ -17,14 +17,14 @@ var q = require('q');
  * conventional properties to be used by the mixins.
  *
  * @constructor
- * @param {String} src
+ * @param {String} path
  * @param {String} dest
  * @param {Object} ctx
  */
-module.exports = function Themeleon(src, dest, ctx) {
+module.exports = function Themeleon(path, dest, ctx) {
   this.tasks = [];
-  this.src = path.resolve(src);
-  this.dest = path.resolve(dest);
+  this.path = path.map(function (p) { return nodePath.resolve(p); });
+  this.dest = nodePath.resolve(dest);
   this.ctx = ctx;
 };
 

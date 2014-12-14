@@ -1,10 +1,11 @@
 'use strict';
 
 var path = require('path');
+var pathSearch = require('path-search');
 
 exports.src = function (fn) {
   return function (src) {
-    arguments[0] = path.resolve(this.src, src);
+    arguments[0] = pathSearch(this.path, src);
 
     if (arguments.length < 1) {
       arguments.length = 1;
@@ -14,9 +15,7 @@ exports.src = function (fn) {
   };
 };
 
-exports.srcDest = function (fn) {
-  fn = exports.src(fn);
-
+exports.dest = function (fn) {
   return function (src, dest) {
     if (typeof dest === 'undefined') {
       dest = src;
@@ -30,6 +29,10 @@ exports.srcDest = function (fn) {
 
     return fn.apply(this, arguments);
   };
+};
+
+exports.srcDest = function (fn) {
+  return exports.dest(exports.src(fn));
 };
 
 exports.push = function (fn) {

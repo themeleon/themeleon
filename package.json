@@ -34,18 +34,19 @@
     "fs-extra": "^0.13.0",
     "glob": "^4.3.1",
     "merge": "^1.2.0",
+    "merge-dirs": "0.0.2",
+    "path-search": "^1.0.0",
     "q": "^1.1.2"
   },
 
   "devDependencies": {
     "eslint": "^0.10.2",
-    "faucet": "0.0.1",
-    "rimraf": "^2.2.8",
-    "tape": "^3.0.3"
+    "mocha": "^2.0.1",
+    "rimraf": "^2.2.8"
   },
 
   "scripts": {
     "lint": "eslint .",
-    "test": "$npm_package_scripts_lint && tape test/*.js | faucet"
+    "test": "$npm_package_scripts_lint && mocha test"
   }
 }
