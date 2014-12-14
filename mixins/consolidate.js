@@ -18,7 +18,7 @@ Object.keys(cons).forEach(function (engine) {
     writeFile = writeFile || q.denodeify(fs.writeFile);
 
     // Merge options
-    var ctx = merge(true, this.ctx, options);
+    var ctx = merge({}, this.ctx, options);
 
     // Write destination callback
     var writeDest = ap([dest], writeFile);
