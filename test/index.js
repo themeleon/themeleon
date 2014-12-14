@@ -73,7 +73,7 @@ describe('Templating', function () {
   });
 });
 
-describe('Extend', function () {
+describe('Path', function () {
   var th = tf(), d = dest();
 
   var theme = th(['extend/b', 'extend/a'], function (t) {
@@ -81,7 +81,7 @@ describe('Extend', function () {
     t.copy('README.md');
   });
 
-  it('should resolve files', function (done) {
+  it('should resolve files in path', function (done) {
     theme(d, {}).then(function () {
       a.equal(
         cat(d + '/assets/css/main.css'),
@@ -99,6 +99,42 @@ describe('Extend', function () {
       );
 
       rm(d);
+    }).then(done, done);
+  });
+});
+
+describe('Extend', function () {
+  var th = tf(), d = dest();
+
+  it('should extend path', function () {
+    var theme = th('extend/a', function () {}).extend('extend/b');
+    a.deepEqual(theme.path, ['extend/b', 'extend/a']);
+  });
+
+  it('should keep parent procedure', function (done) {
+    var called;
+
+    var theme = th('extend/a', function () {
+      called = 'parent';
+    }).extend('extend/b');
+
+    theme(d, {}).then(function () {
+      a.equal(called, 'parent');
+    }).then(done, done);
+  });
+
+
+  it('should show procedure', function (done) {
+    var called;
+
+    var theme = th('extend/a', function () {
+      called = 'parent';
+    }).extend('extend/b', function () {
+      called = 'child';
+    });
+
+    theme(d, {}).then(function () {
+      a.equal(called, 'child');
     }).then(done, done);
   });
 });

@@ -42,6 +42,21 @@ module.exports = function factory() {
 
     render.path = [].concat(path);
 
+    /**
+     * @param {String} path Subtheme path.
+     * @param {Function} childProc Optional render procedure to show parent.
+     * @return {Function} Extended theme function.
+     */
+    render.extend = function (path, childProc) {
+      render.path.unshift(path);
+
+      if (childProc) {
+        proc = childProc;
+      }
+
+      return render;
+    };
+
     return render;
   }
 
