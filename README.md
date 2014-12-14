@@ -242,6 +242,29 @@ argument, which will be merged with the global context before rendering.
 This is also used by consolidate.js to define partials for some template
 engines.
 
+Inheritance
+-----------
+
+A specificity of Themeleon themes (not just the themeleon interface, but
+actual themes using Themeleon as a library) is they're extendible; a
+theme can extend another theme, and override some files, and even the
+theme rendering function. Themeleon will then walk up the whole extend
+tree to find files to copy, templates to render, etc.
+
+Internally, it uses a `path` array, containing the theme directories to
+search for files, exactly like the `PATH` environment variable.
+
+```js
+// Keep parent render function
+module.exports = require('parent-theme').extend(__dirname);
+
+// Custom render function
+module.exports = require('parent-theme').extend(__dirname, function (t) {
+  t.copy('assets');
+  t.swig('views/index.html.swig', 'index.html');
+});
+```
+
 Examples
 --------
 
