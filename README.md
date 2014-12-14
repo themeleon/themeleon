@@ -245,7 +245,7 @@ engines.
 Inheritance
 -----------
 
-A specificity of Themeleon themes (not just the themeleon interface, but
+A specificity of Themeleon themes (not just the Themeleon interface, but
 actual themes using Themeleon as a library) is they're extendible; a
 theme can extend another theme, and override some files, and even the
 theme rendering function. Themeleon will then walk up the whole extend
