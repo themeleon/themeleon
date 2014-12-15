@@ -1,14 +1,11 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "rules": {
     "quotes": "single",
-    "no-comma-dangle": false,
+    "no-comma-dangle": 0,
     "no-use-before-define": "nofunc"
-  },
-  "globals": {
-    "describe": false,
-    "it": false
   }
 }
