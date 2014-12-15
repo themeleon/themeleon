@@ -11,6 +11,7 @@
   * [As a theme maker](#as-a-theme-maker)
   * [As a theme user](#as-a-theme-user)
 * [Template engines](#template-engines)
+* [Inheritance](#inheritance)
 * [Examples](#examples)
 
 Overview
