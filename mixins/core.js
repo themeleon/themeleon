@@ -46,9 +46,12 @@ exports.copy = d.push(d.dest(function (src, dest) {
       }
 
       // If it's a directory, merge all paths
-      return this.path.reduce(function (promise, path) {
-        return merge(nodePath.resolve(path, src), dest);
-      }, q());
+      return this.path.forEach(function (path) {
+        var dir = nodePath.resolve(path, src);
+        if (fs.existsSync(dir) && fs.lstatSync(dir).isDirectory()) {
+          merge(dir, dest);
+        }
+      });
     }.bind(this));
   }).call(this, src, dest);
 }));
