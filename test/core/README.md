@@ -1,4 +1,0 @@
-Core
-====
-
-> Core test!
