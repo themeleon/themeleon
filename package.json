@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "ap": "^0.2.0",
-    "consolidate": "^0.10.0",
+    "consolidate": "^0.13.0",
     "fs-extra": "^0.13.0",
     "glob": "^4.3.1",
     "merge": "^1.2.0",
@@ -31,6 +31,7 @@
     "eslint": "^0.10.2",
     "faucet": "0.0.1",
     "rimraf": "^2.2.8",
+    "swig": "^1.4.2",
     "tape": "^3.0.3"
   },
   "scripts": {
