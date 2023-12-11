@@ -13,11 +13,11 @@
       "url": "https://github.com/pascalduez"
     }
   ],
-  "homepage": "https://github.com/themeleon/themeleon",
-  "bugs": "https://github.com/themeleon/themeleon/issues",
+  "homepage": "https://github.com/simeonoff/themeleon",
+  "bugs": "https://github.com/simeonoff/themeleon/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/themeleon/themeleon.git"
+    "url": "https://github.com/simeonoff/themeleon.git"
   },
   "dependencies": {
     "ap": "^0.2.0",
